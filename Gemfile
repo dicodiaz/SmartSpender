@@ -79,3 +79,6 @@ end
 gem 'devise'
 
 gem 'cancancan'
+
+gem 'bootstrap'
+gem 'bootstrap_form'
