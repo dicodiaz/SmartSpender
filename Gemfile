@@ -70,5 +70,8 @@ group :development do
   # gem "spring"
 
   gem 'rubocop', '>= 1.0', '< 2.0'
+
   gem 'solargraph'
+
+  gem 'bullet'
 end
