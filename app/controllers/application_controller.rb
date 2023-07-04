@@ -10,4 +10,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
+
+  private
+
+  def authenticate_user!
+    if user_signed_in?
+      super
+    elsif [welcome_path, new_user_session_path, new_user_registration_path].exclude?(request.original_fullpath)
+      redirect_to welcome_path, notice: 'You need to sign in or sign up before continuing.'
+    end
+  end
 end
