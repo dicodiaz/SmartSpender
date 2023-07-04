@@ -4,4 +4,14 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
   validates :icon, presence: true
+
+  def total_purchases
+    purchase_categories.size
+  end
+
+  def total_amount
+    purchase_categories.includes(:purchase).reduce(0) do |sum, purchase_category|
+      sum + purchase_category.purchase.amount
+    end
+  end
 end

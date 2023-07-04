@@ -1,14 +1,16 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Categories</h1>
-
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New category", new_category_path %>
+<main>
+  <header class="row bg-primary mx-0 g-0 p-2">
+    <div class="col">
+      <h1 class="text-center text-white mb-0 h4">CATEGORIES</h1>
+    </div>
+    <div class="col-auto d-flex flex-colum justify-content-center"></div>
+  </header>
+  <section class="container pt-3">
+    <% @categories.each do |category| %>
+      <%= link_to render(category), purchases_path(category: category.id) %>
+    <% end %>
+  </section>
+  <div class="d-flex justify-content-center">
+    <%= button_to "New category", new_category_path, method: :get, class: "btn btn-secondary" %>
+  </div>
+</main>
