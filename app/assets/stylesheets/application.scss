@@ -24,12 +24,16 @@ $font-family-base: 'Proxima Nova', system-ui, -apple-system, 'Segoe UI', Roboto,
   'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
   'Segoe UI Symbol', 'Noto Color Emoji';
 $border-radius: 0.25rem;
+$input-padding-y: 0.7rem;
+$input-bg: white;
+$input-font-size: 0.9rem;
 
 @import 'bootstrap';
 @import 'rails_bootstrap_forms';
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css');
 
 .btn-secondary {
-  color: #fff;
+  color: white;
 }
 
 .btn-sign-up {
@@ -42,4 +46,8 @@ $border-radius: 0.25rem;
     darken($body-bg, 7.5%),
     darken($body-color, 30%)
   );
+}
+
+.btn-submit-login {
+  @include button-variant($primary, $primary, white, $primary, $primary, darken(white, 30%));
 }
