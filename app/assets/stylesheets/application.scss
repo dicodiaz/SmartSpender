@@ -1,3 +1,45 @@
-// Custom bootstrap variables must be set or imported *before* bootstrap.
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('Fontspring-DEMO-proximanova-light.otf');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('Fontspring-DEMO-proximanova-bold.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('Fontspring-DEMO-proximanova-boldit.otf');
+  font-weight: bold;
+  font-style: italic;
+}
+
+$primary: #3778c2;
+$secondary: #5fb523;
+$body-color: #434b54;
+$body-bg: #f0f2f1;
+$font-family-base: 'Proxima Nova', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+  'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol', 'Noto Color Emoji';
+$border-radius: 0.25rem;
+
 @import 'bootstrap';
 @import 'rails_bootstrap_forms';
+
+.btn-secondary {
+  color: #fff;
+}
+
+.btn-sign-up {
+  // button-variant($background, $border, $text, $hover-background, $hover-border, $hover-text)
+  @include button-variant(
+    $body-bg,
+    $body-bg,
+    $body-color,
+    darken($body-bg, 7.5%),
+    darken($body-bg, 7.5%),
+    darken($body-color, 30%)
+  );
+}

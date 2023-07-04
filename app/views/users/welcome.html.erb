@@ -1,3 +1,13 @@
-<h1>SmartSpender</h1>
-<%= button_to "Log in", new_user_session_path, method: :get %>
-<%= button_to "Sign up", new_user_registration_path, method: :get %>
+<main class="container">
+  <div class="row flex-column min-vh-100 py-2">
+    <div class="col d-flex flex-column justify-content-center">
+      <h1 class="display-2 fst-italic text-center mb-0">SmartSpender</h1>
+    </div>
+    <div class="col-auto">
+      <%= button_to "LOG IN", new_user_session_path, method: :get, class: "btn btn-primary w-100 py-3" %>
+    </div>
+    <div class="col-auto">
+      <%= button_to "SIGN UP", new_user_registration_path, method: :get, class: "btn btn-sign-up w-100 py-3" %>
+    </div>
+  </div>
+</main>
