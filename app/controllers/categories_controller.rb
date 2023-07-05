@@ -17,8 +17,9 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to category_url(@category), notice: 'Category was successfully created.'
+      redirect_to categories_path, flash: { success: 'Category was successfully added.' }
     else
+      flash.now[:error] = @category.errors.full_messages.to_sentence.prepend('Error(s): ')
       render :new, status: :unprocessable_entity
     end
   end
@@ -44,6 +45,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:name, :icon, :user_id)
+    params.require(:category).permit(:name, :icon).merge(user: current_user)
   end
 end
