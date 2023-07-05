@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
-  belongs_to :user
-  has_many :purchase_categories
+  belongs_to :user, counter_cache: true
+  has_many :purchase_categories, dependent: :destroy
 
   validates :name, presence: true
   validates :icon, presence: true
