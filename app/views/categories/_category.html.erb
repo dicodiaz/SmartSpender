@@ -1,6 +1,6 @@
 <div id="<%= dom_id(category) %>" class="card mb-3">
-  <div class="card-body p-2">
-    <div class="row">
+  <div class="card-body p-3">
+    <div class="row mx-0 g-0">
       <div class="col-3">
         <img
           src="<%= category.icon %>"
@@ -8,12 +8,12 @@
           alt="category-icon-<%= category.name.downcase %>"
         />
       </div>
-      <div class="col d-flex flex-column justify-content-center">
+      <div class="col d-flex flex-column justify-content-center px-2">
         <p class="card-text lead"><%= category.name %></p>
       </div>
-      <div class="col-auto">
+      <div class="col-auto d-flex flex-column justify-content-center">
         <p><%= category.total_purchases %> purchase(s)</p>
-        <p>$<%= category.total_amount %></p>
+        <p class="fw-bold">$<%= category.total_amount %></p>
       </div>
     </div>
   </div>

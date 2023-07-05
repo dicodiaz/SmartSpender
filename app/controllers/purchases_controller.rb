@@ -2,7 +2,8 @@ class PurchasesController < ApplicationController
   before_action :set_purchase, only: %i[show edit update destroy]
 
   def index
-    @purchases = Purchase.all
+    @category = Category.find_by(id: params[:category_id])
+    @purchase_categories = PurchaseCategory.where(category: @category).order(created_at: :desc)
   end
 
   def show; end
