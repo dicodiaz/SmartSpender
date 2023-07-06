@@ -62,8 +62,16 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.before(:each, type: :system) do
-    driven_by(ENV['DRIVER'] == 'chrome' ? :selenium_chrome : :selenium_chrome_headless)
+    driven_by(ENV['DRIVER'] == 'chrome' ? :selenium_chrome : :custom_chrome_headless)
   end
 
   config.include Warden::Test::Helpers
+end
+
+Capybara.register_driver :custom_chrome_headless do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.add_argument('--headless')
+  options.add_argument('--log-level=1')
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options:)
 end

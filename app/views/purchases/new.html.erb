@@ -2,7 +2,7 @@
   <%= bootstrap_form_with(model: @purchase) do |form| %>
     <header class="row bg-primary mx-0 g-0 p-2">
       <div class="col-auto d-flex flex-colum justify-content-center">
-        <%= link_to purchases_path(category_id: @category&.id) do %>
+        <%= link_to purchases_path(category_id: @category&.id), id: "back_to_purchases" do %>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="26"
