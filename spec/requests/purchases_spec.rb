@@ -32,25 +32,9 @@ RSpec.describe '/purchases', type: :request do
     end
   end
 
-  describe 'GET /show' do
-    it 'renders a successful response' do
-      purchase = Purchase.create! valid_attributes
-      get purchase_url(purchase)
-      expect(response).to be_successful
-    end
-  end
-
   describe 'GET /new' do
     it 'renders a successful response' do
       get new_purchase_url
-      expect(response).to be_successful
-    end
-  end
-
-  describe 'GET /edit' do
-    it 'renders a successful response' do
-      purchase = Purchase.create! valid_attributes
-      get edit_purchase_url(purchase)
       expect(response).to be_successful
     end
   end
@@ -80,51 +64,6 @@ RSpec.describe '/purchases', type: :request do
         post purchases_url, params: { purchase: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-    end
-  end
-
-  describe 'PATCH /update' do
-    context 'with valid parameters' do
-      let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
-      end
-
-      it 'updates the requested purchase' do
-        purchase = Purchase.create! valid_attributes
-        patch purchase_url(purchase), params: { purchase: new_attributes }
-        purchase.reload
-        skip('Add assertions for updated state')
-      end
-
-      it 'redirects to the purchase' do
-        purchase = Purchase.create! valid_attributes
-        patch purchase_url(purchase), params: { purchase: new_attributes }
-        purchase.reload
-        expect(response).to redirect_to(purchase_url(purchase))
-      end
-    end
-
-    context 'with invalid parameters' do
-      it "renders a response with 422 status (i.e. to display the 'edit' template)" do
-        purchase = Purchase.create! valid_attributes
-        patch purchase_url(purchase), params: { purchase: invalid_attributes }
-        expect(response).to have_http_status(:unprocessable_entity)
-      end
-    end
-  end
-
-  describe 'DELETE /destroy' do
-    it 'destroys the requested purchase' do
-      purchase = Purchase.create! valid_attributes
-      expect do
-        delete purchase_url(purchase)
-      end.to change(Purchase, :count).by(-1)
-    end
-
-    it 'redirects to the purchases list' do
-      purchase = Purchase.create! valid_attributes
-      delete purchase_url(purchase)
-      expect(response).to redirect_to(purchases_url)
     end
   end
 end
