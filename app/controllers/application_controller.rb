@@ -16,7 +16,8 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     if user_signed_in?
       super
-    elsif [welcome_path, new_user_session_path, new_user_registration_path].exclude?(request.original_fullpath)
+    elsif [welcome_path, new_user_session_path, new_user_registration_path,
+           user_registration_path].exclude?(request.original_fullpath)
       redirect_to welcome_path, notice: 'You need to sign in or sign up before continuing.'
     end
   end
