@@ -23,6 +23,7 @@ class PurchasesController < ApplicationController
     if @purchase.save
       redirect_to session.delete(:return_to) || purchases_path, flash: { success: 'Purchase was successfully created.' }
     else
+      @user ||= current_user
       flash.now[:error] = @purchase.errors.full_messages.to_sentence.prepend('Error(s): ')
       render :new, status: :unprocessable_entity
     end

@@ -64,4 +64,6 @@ RSpec.configure do |config|
   config.before(:each, type: :system) do
     driven_by(ENV['DRIVER'] == 'chrome' ? :selenium_chrome : :selenium_chrome_headless)
   end
+
+  config.include Warden::Test::Helpers
 end
