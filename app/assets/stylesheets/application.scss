@@ -53,3 +53,7 @@ img {
 .btn-submit-login {
   @include button-variant($primary, $primary, white, $primary, $primary, darken(white, 30%));
 }
+
+.form-select > optgroup > option {
+  padding-block: 0.5rem;
+}

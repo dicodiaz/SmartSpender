@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :purchases, foreign_key: 'author_id', dependent: :destroy
 
   validates :name, presence: true
+
+  def select_categories
+    [['Categories', categories.order(:id).map { |category| [category.name, category.id] }]]
+  end
 end

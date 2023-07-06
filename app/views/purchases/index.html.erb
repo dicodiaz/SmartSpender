@@ -1,4 +1,4 @@
-<main>
+<main class="pb-5 mb-4">
   <header class="row bg-primary mx-0 g-0 p-2">
     <div class="col-auto d-flex flex-colum justify-content-center">
       <%= link_to categories_path do %>
@@ -19,17 +19,19 @@
     </div>
     <div class="col">
       <h1 class="text-center text-white mb-0 h4">
-        PURCHASES - <%= @category.name %> ($<%= @category.total_amount %>)
+        PURCHASES -
+        <%= @category&.name || 'All' %>
+        ($<%= total_amount(@purchases) %>)
       </h1>
     </div>
     <div class="col-auto d-flex flex-colum justify-content-center"></div>
   </header>
   <section class="container pt-3">
-    <% @purchase_categories.each do |purchase_category| %>
-      <%= render(purchase_category.purchase, category: @category) %>
+    <% @purchases.each do |purchase| %>
+      <%= render(purchase, category: @category || purchase.categories.first) %>
     <% end %>
   </section>
 </main>
 <div class="p-3 bg-secondary fixed-bottom">
-  <%= button_to "ADD NEW PURCHASE", new_category_path, method: :get, class: "btn btn-secondary border-white w-100" %>
+  <%= link_to "ADD NEW PURCHASE", new_purchase_path(category_id: @category&.id), class: "btn btn-secondary border-white w-100" %>
 </div>

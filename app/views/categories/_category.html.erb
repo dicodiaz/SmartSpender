@@ -12,7 +12,7 @@
         <p class="card-text lead"><%= category.name %></p>
       </div>
       <div class="col-auto d-flex flex-column justify-content-center">
-        <p><%= category.total_purchases %> purchase(s)</p>
+        <p><%= pluralize(category.total_purchases, 'purchase') %></p>
         <p class="fw-bold">$<%= category.total_amount %></p>
       </div>
     </div>

@@ -1,9 +1,36 @@
-<h1>New purchase</h1>
-
-<%= render "form", purchase: @purchase %>
-
-<br />
-
-<div>
-  <%= link_to "Back to purchases", purchases_path %>
-</div>
+<main>
+  <%= bootstrap_form_with(model: @purchase) do |form| %>
+    <header class="row bg-primary mx-0 g-0 p-2">
+      <div class="col-auto d-flex flex-colum justify-content-center">
+        <%= link_to purchases_path(category_id: @category&.id) do %>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            fill="white"
+            class="bi bi-arrow-left"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+            />
+          </svg>
+        <% end %>
+      </div>
+      <div class="col">
+        <h1 class="text-center text-white mb-0 h4">NEW PURCHASE</h1>
+      </div>
+      <div class="col-auto d-flex flex-colum justify-content-center">
+        <%= form.submit "Add", class: "btn btn-submit-login p-0" %>
+      </div>
+    </header>
+    <div class="py-2">
+      <%= form.text_field :name, autofocus: true, hide_label: true, placeholder: 'Name', wrapper: { class: "" } %>
+      <%= form.text_field :amount, hide_label: true, placeholder: 'Amount', wrapper: { class: "" } %>
+      <%= form.fields_for :purchase_categories do |pcs| %>
+        <%= pcs.select :category_id, grouped_options_for_select(@user.select_categories, params[:category_id]), { hide_label: true }, multiple: true, class: "pb-0" %>
+      <% end %>
+    </div>
+  <% end %>
+</main>
