@@ -1,3 +1,59 @@
-// Custom bootstrap variables must be set or imported *before* bootstrap.
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('Proxima Nova Font.otf');
+}
+
+$primary: #3778c2;
+$secondary: #5fb523;
+$custom-color: #434b54;
+$body-color: lighten($custom-color, 30%);
+$body-bg: #f0f2f1;
+$font-family-base: 'Proxima Nova', system-ui, -apple-system, 'Segoe UI', roboto, 'Helvetica Neue',
+  'Noto Sans', 'Liberation Sans', arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol', 'Noto Color Emoji';
+$border-radius: 0.25rem;
+$input-placeholder-color: $body-color;
+$input-padding-y: 0.7rem;
+$input-bg: white;
+$input-font-size: 0.9rem;
+$link-color: $body-color;
+$link-decoration: none;
+$link-shade-percentage: 100%;
+$paragraph-margin-bottom: 0;
+
 @import 'bootstrap';
 @import 'rails_bootstrap_forms';
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css');
+
+.fw-bold {
+  color: $custom-color;
+}
+
+img {
+  opacity: 80%;
+}
+
+.btn-secondary {
+  color: white;
+  border-radius: 0;
+}
+
+.btn-sign-up {
+  // button-variant($background, $border, $text, $hover-background, $hover-border, $hover-text)
+  @include button-variant(
+    $body-bg,
+    $body-bg,
+    $body-color,
+    darken($body-bg, 7.5%),
+    darken($body-bg, 7.5%),
+    darken($body-color, 30%)
+  );
+}
+
+.btn-submit-login {
+  @include button-variant($primary, $primary, white, $primary, $primary, darken(white, 30%));
+}
+
+.form-select > optgroup > option {
+  padding-block: 0.5rem;
+}

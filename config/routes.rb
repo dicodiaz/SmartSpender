@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root to: redirect('/categories', status: 302)
+  resources :purchases, only: %i[index new create]
+  resources :categories, only: %i[index new create]
+  devise_for :users
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get '/welcome', to: 'users#welcome'
 end

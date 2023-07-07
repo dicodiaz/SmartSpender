@@ -1,0 +1,33 @@
+<main>
+  <%= bootstrap_form_with(model: @category) do |form| %>
+    <header class="row bg-primary mx-0 g-0 p-2">
+      <div class="col-auto d-flex flex-colum justify-content-center">
+        <%= link_to categories_path, id: "back_to_categories" do %>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            fill="white"
+            class="bi bi-arrow-left"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+            />
+          </svg>
+        <% end %>
+      </div>
+      <div class="col">
+        <h1 class="text-center text-white mb-0 h4">NEW CATEGORY</h1>
+      </div>
+      <div class="col-auto d-flex flex-colum justify-content-center">
+        <%= form.submit "Add", class: "btn btn-submit-login p-0" %>
+      </div>
+    </header>
+    <div class="py-2">
+      <%= form.text_field :name, autofocus: true, hide_label: true, placeholder: 'Name', wrapper: { class: "" } %>
+      <%= form.text_field :icon, hide_label: true, placeholder: 'Icon URL' %>
+    </div>
+  <% end %>
+</main>

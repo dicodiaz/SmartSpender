@@ -1,0 +1,56 @@
+<main>
+  <%= bootstrap_form_with(model: resource, scope: resource_name, url: registration_path(resource_name)) do |f| %>
+    <header class="row bg-primary mx-0 g-0 p-2">
+      <div class="col-auto d-flex flex-colum justify-content-center">
+        <%= link_to welcome_path do %>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            fill="white"
+            class="bi bi-arrow-left"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+            />
+          </svg>
+        <% end %>
+      </div>
+      <div class="col">
+        <h1 class="text-center text-white mb-0 h4">REGISTER</h1>
+      </div>
+      <div class="col-auto d-flex flex-colum justify-content-center">
+        <%= f.submit "Sign Up", class: "btn btn-submit-login p-0" %>
+      </div>
+    </header>
+    <div class="py-2">
+      <%= f.hidden_field :icon, value: 'https://cdn1.iconfinder.com/data/icons/avatars-55/100/avatar_profile_user_music_headphones_shirt_cool-512.png' %>
+      <div class="row row-cols-auto mx-0 g-0 bg-white p-3 text-muted">
+        <div class="col">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="36"
+            height="36"
+            fill="currentColor"
+            class="bi bi-person-circle"
+            viewBox="0 0 16 16"
+          >
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path
+              fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+            />
+          </svg>
+        </div>
+        <div class="col d-flex flex-column justify-content-center">
+          <p class="ps-2">Upload picture (Coming soon)</p>
+        </div>
+      </div>
+      <%= f.text_field :name, autofocus: true, hide_label: true, placeholder: 'Full name', wrapper: { class: "" } %>
+      <%= f.email_field :email, autocomplete: "email", hide_label: true, placeholder: 'Email', wrapper: { class: "" } %>
+      <%= f.password_field :password, autocomplete: "current-password", hide_label: true, placeholder: 'Password' %>
+    </div>
+  <% end %>
+</main>
