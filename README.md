@@ -56,6 +56,8 @@
 
 - [smart-spender.onrender.com](https://smart-spender.onrender.com/welcome)
 
+**Note:** Render's free web services spin down after 15 minutes of inactivity. There's a delay while it's spun up again. Thank you for your patience.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
